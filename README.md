@@ -1,6 +1,5 @@
 # CombineControl website with in-game account management section.
 # Angular & Node.js & MySQL
-# link : dev1.combinecontrol.com(WIP)
 
 ### Home Page:
 
