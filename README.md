@@ -1,5 +1,7 @@
 # CombineControl website with in-game account management section.
-# Angular & Node.js & MySQL
+# Angular & Node.js & MySQL & Steam Authentication using passport-openid
+
+
 
 ### Home Page:
 
