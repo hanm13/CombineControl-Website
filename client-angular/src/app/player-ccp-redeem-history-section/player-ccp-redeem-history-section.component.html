@@ -1,0 +1,28 @@
+
+<p *ngIf="steamUserService.ccpData.length == 0">No data.</p>
+
+<table class="redTable" *ngIf="steamUserService.ccpData.length != 0" border="1">
+
+  <tr>
+    <td>Unique ID</td>
+    <td>Package Name</td>
+    <td>Name</td>
+    <td>Package ID</td>
+    <td>Char ID</td>
+    <td>Amount</td>
+    <td>Date</td>
+  </tr>
+
+  <tr *ngFor ="let redeem of steamUserService.ccpData">
+
+    <td>{{redeem.id}}</td>
+    <td>{{redeem.packagename}}</td>
+    <td>{{redeem.playername}}</td>
+    <td>{{redeem.packageid}}</td>
+    <td>{{redeem.charid}}</td>
+    <td>{{redeem.amount * 2}}</td>
+    <td>{{redeem.date}}</td>
+
+  </tr>
+
+</table>

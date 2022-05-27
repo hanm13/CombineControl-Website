@@ -1,0 +1,31 @@
+body { padding: 50px }
+.write-form{
+  display:flex;
+  flex-direction:column;
+  border:solid 1px grey;
+  background: linear-gradient(180deg, rgb(238, 238, 238), rgb(204, 204, 204));
+  padding:15px;
+  justify-content: center;
+  border-radius: 5px;
+  top: 100px;
+  width:75%;
+    position: relative;
+}
+.bottom-box{
+  display:flex;
+}
+.output {
+  border: solid 1px grey ;
+  border-radius: 5px;
+  flex-basis: 200px;
+  padding: 10px;
+  margin: 0 0 8px;
+  background-color: #A40808;
+}
+
+p{
+
+  color: black;
+  border-bottom: 2px solid black;
+  width: 70%;
+}

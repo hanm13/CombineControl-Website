@@ -1,0 +1,30 @@
+<div class="title-cover">
+	<h1>Servers - OOC Chat</h1>
+</div>
+
+<div class="page-content">
+
+  <table class="redTable" border="1">
+
+    <tr>
+      <td>Number</td>
+      <td>ID</td>
+      <td>Date</td>
+      <td>Time</td>
+      <td>Message</td>
+    </tr>
+
+    <tr *ngFor ="let chat of steamUserService.chatData; let i = index">
+
+      <td>{{i + 1}}</td>
+      <td>{{chat.id}}</td>
+      <td>{{chat.Date}}</td>
+      <td>{{chat.Time}}</td>
+      <td>{{chat.Text}}</td>
+
+    </tr>
+
+  </table>
+
+
+</div>

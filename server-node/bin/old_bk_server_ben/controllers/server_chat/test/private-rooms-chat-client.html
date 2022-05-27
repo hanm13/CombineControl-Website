@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Echo</title>
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/normalize/3.0.1/normalize.min.css">
+  <script src="/primus/primus.js"></script>
+  <style>
+      body { padding: 50px }
+      .main{
+          display:flex;
+      }
+      .write-form{
+        display:flex;
+        flex-direction:column;
+        border:solid 1px grey;
+        background: linear-gradient(180deg, rgb(238, 238, 238), rgb(204, 204, 204));
+        padding:15px;
+        justify-content: center;
+        border-radius: 5px;
+        flex:1;
+      }
+      .bottom-box{
+        display:flex;
+        justify-content: space-between;
+      }
+      .output {
+        border: solid 1px grey ;
+        border-radius: 5px;
+        flex-basis: 200px;
+        padding: 10px;
+        margin: 0 0 8px
+      }
+      .input {
+        flex:1 1;
+        height: 28px;
+        font-size: 16px ;
+        border-radius: 5px;
+        border:solid 1px grey;
+        padding-left: 10px;
+        margin-right: 10px;
+      }
+      .channels-div{
+        display:flex;
+        flex-direction:column;
+      }
+      .channel{
+        margin: 0 0 10px 10px;
+      }
+      button {
+        border-radius: 5px;
+        border: 0;
+        background: #444;
+        color: #FFF;
+        padding: 6px;
+      }
+      #nickNameInput{
+
+        width: 10%;
+
+      }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <form class="write-form">
+      <input type="text" id="nickNameInput" placeholder="Nickname"/>
+      <textarea class="output" readonly></textarea>
+      <div class="bottom-box">
+        <input placeholder="write a message..." class="input" />
+        <button type="submit">Send</button>
+      </div>
+    </form>
+    <div class="channels-div">
+        <button class="channel" data-room="news">News</button>
+        <button class="channel" data-room="random">Random</button>
+        <button class="channel" data-room="tech">Tech</button>
+    </div>
+  </div>
+
+  <script>
+      const $ = selector => document.querySelector(selector);
+      const $$ = selector => document.querySelectorAll(selector);
+
+      const output = $('.output')
+      const input = $('.input');
+      const write_form = $('.write-form');
+      const channels = $('.channel');
+
+      let currentRoom = 'general';
+
+      // Tell primus to create a new connect to the current domain/port/protocol
+      const primus = new Primus();
+      // Listen for incoming data and log it in our textarea.
+      primus.on('data', data => output.value += `${data}\n`);
+
+      // Listen for submits of the form so we can send the message to the server.
+      write_form.onsubmit = event => {
+        // Write the typed message.
+        //primus.write(input.value);
+
+        let nickNameInput_el = document.getElementById("nickNameInput");
+        let nickname = (nickNameInput_el.value != "") ? nickNameInput_el.value : "Visitor";
+
+        primus.write({ room: currentRoom, message: input.value, name:nickname });
+        input.value = '';
+
+        event.preventDefault();
+      };
+      channels.onclick = event => {
+        //set the client room...
+        currentRoom = event.target.dataset.room;
+        // Send request to join the news room
+        primus.write({ action: 'join', room: currentRoom });
+      }
+  </script>
+</body>
+</html>

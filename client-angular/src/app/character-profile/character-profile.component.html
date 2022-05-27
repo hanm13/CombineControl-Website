@@ -1,0 +1,70 @@
+<h1 class="charName">{{profileData.RPName}}</h1>
+<div class="player-stats">
+  <img src="../assets/images/chars/{{profileData.webModel}}">
+  <table>
+
+    <tr>
+      <td>Character Unique ID</td>
+      <td>{{profileData.id}}</td>
+    </tr>
+    <tr>
+      <td>Creation Date</td>
+      <td>{{profileData.Date}}</td>
+    </tr>
+    <tr>
+      <td>Last Online</td>
+      <td>{{profileData.LastOnline}}</td>
+    </tr>
+    <tr>
+      <td>Credits</td>
+      <td>{{profileData.Money}}</td>
+    </tr>
+    <tr>
+      <td>CID</td>
+      <td>{{profileData.CID}}</td>
+    </tr>
+    <tr>
+      <td>Loan</td>
+      <td>{{profileData.Loan}}</td>
+    </tr>
+    <tr>
+      <td>Loyalist Points</td>
+      <td>{{profileData.LoyalistPoints}}</td>
+    </tr>
+    <tr>
+      <td>Agility</td>
+      <td>{{profileData.StatAgility}}/100</td>
+    </tr>
+    <tr>
+      <td>Toughness</td>
+      <td>{{profileData.StatToughness}}/100</td>
+    </tr>
+    <tr>
+      <td>Speed</td>
+      <td>{{profileData.StatSpeed}}/100</td>
+    </tr>
+    <tr>
+      <td>Perception</td>
+      <td>{{profileData.StatPerception}}/100</td>
+    </tr>
+    <tr>
+      <td>Aim</td>
+      <td>{{profileData.StatAim}}/100</td>
+    </tr>
+    <tr>
+      <td>Strength</td>
+      <td>{{profileData.StatStrength}}/100
+    </tr>
+
+  </table>
+
+  <div>
+
+    <h2>About Me!</h2>
+    <tr>
+      <td colspan=2><textarea name='desc' maxlength=3000>{{profileData.Title}}</textarea></td>
+    </tr>
+
+  </div>
+
+</div>

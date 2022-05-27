@@ -1,0 +1,20 @@
+
+<ul id="mobilemenu">
+
+  <li *ngIf="!steamUserService.userData.steamid">
+
+      <!--<li ngIf="userData.steamid"> - Welcome back {{userData.personaname}}</li>-->
+      <a [href]="authDomain"><img src="https://res.cloudinary.com/dwoxn3tdv/image/upload/v1517328296/sits_small_jhdeid.png"/></a>
+
+  </li>
+
+  <li *ngIf="steamUserService.userData.steamid"> - Welcome back {{steamUserService.userData.personaname}}! <button id="steamlogoutbtn" (click)="logout();">Logout</button></li>
+
+
+  <li><a routerLink="/home" (click)="mobileMenuSlide();">Home</a></li>
+  <li><a href="/forum">Forums</a></li>
+  <li><a href="javascript:void;" [routerLink]="['/home']" (click)="serversClick(); mobileMenuSlide();" style='background=none;'>Servers</a></li>
+  <li><a href="https://www.combinecontrol.com/forum/node/33">Updates</a></li>
+  <li><a routerLink="/account" (click)="mobileMenuSlide();">Account</a></li>
+  <!--<?php echo "<li>" .$adminp."</li>" ?> // CHANGE TO NODE!-->
+</ul>

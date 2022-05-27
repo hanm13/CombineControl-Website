@@ -1,0 +1,14 @@
+<table cellspacing=25>
+    <tr>
+    <ul class="char-list">
+        <a *ngFor="let character of steamUserService.charactersData" routerLink="/account/characters/profile/{{character.id}}">
+            <li>
+              <img src="../assets/images/chars/{{character.webModel}}" height="120" width="120" >
+              <div class="char-name">
+                <span>{{character.RPName}}</span>
+              </div>
+            </li>
+        </a>
+    </ul>
+    </tr>
+</table>

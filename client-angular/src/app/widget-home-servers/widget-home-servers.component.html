@@ -1,0 +1,63 @@
+<div class="widget_servers_new">
+
+  <!-- <iframe class="scrollbar" width="100%" height="100%" frameborder="0" src="https://www.combinecontrol.com/servers.php?alert_mode=disabled"></iframe> -->
+
+
+  <div class="about-page" id="about">
+      <!-- <div class="playersAmountBox">
+
+        <h1 id="playersAmountH"><span id="playersAmount">{{playersOnline}}</span> players online</h1>
+
+      </div> -->
+        <div class="container">
+                <div class="row">
+                  <div *ngFor="let server of steamUserService.serversData" class="col s12 m6 serverDiv">
+                      <div class="card">
+                          <div class="card-image">
+                              <img src="{{server.image}}">
+                              <a target="_blank" [href]="getGameServerIpAddress(server.GamePort)" class="btn-floating halfway-fab waves-effect waves-light green tooltipped"
+                                  data-position="top" data-delay="50"  title="Join Server" data-tooltip="Join Server"><i class="fa fa-plug"></i></a>
+
+                                  <a target="_blank" *ngIf="steamUserService.staffData.data && steamUserService.staffData.data.LVL && steamUserService.staffData.data.LVL == '9'" [href]="" ng-click="requestServerRestart(server.GamePort)" class="btn-floating halfway-fab-restart waves-effect waves-light blue tooltipped"
+                                  data-position="top" data-delay="50" data-tooltip="Restart Server" title="Restart Server"><i class="fa fa-plug"></i></a>
+
+                                  <a target="_blank" *ngIf="steamUserService.staffData.data && steamUserService.staffData.data.LVL && steamUserService.staffData.data.LVL == '9'" [href]="" ng-click ="requestServerShutdown(server.GamePort)" class="btn-floating halfway-fab-shutdown waves-effect waves-light red tooltipped"
+                                  data-position="top" data-delay="50" data-tooltip="Shutdown Server" title="Shutdown Server"><i class="fa fa-plug"></i></a>
+                          </div>
+                          <div class="card-content custom-card" id="playercount_gameservers" data>
+                              <span class="card-title truncate font-size-20 serverInfoBefore">{{server.HostName}}</span>
+                              <span class="card-title truncate font-size-20"><span class="serverInfoBefore">Game Server Map: </span>{{server.Map}}</span>
+                              <span class="card-title truncate font-size-20"><span class="serverInfoBefore">Game Server IP: </span>s1.combinecontrol.com:{{server.GamePort}}</span>
+                              <h4 class="center-align truncate font-size-20" class='serverText'>Players: {{server.Players}}</h4>
+                          </div>
+                      </div>
+                  </div>
+                    <!-- <div class="col s12 m6" *ngIf="steamUserService.discordData.members">
+                      <div class="card">
+                          <div class="card-image">
+                              <img src="https://res.cloudinary.com/dwoxn3tdv/image/upload/f_auto,fl_lossy,q_auto/v1520340265/1_A9FdpItfh7lP0R1Q3yDQvA_yneua7.png">
+                              <a href="https://discord.gg/pmnSKb" class="btn-floating halfway-fab waves-effect waves-light green tooltipped"
+                                  data-position="top" data-delay="50" data-tooltip="Join Discord"><i class="fa fa-plug"></i></a>
+                          </div>
+                          <div class="card-content custom-card" id="playercount_discord">
+                              <span class="card-title truncate">Discord - {{steamUserService.discordData['name']}}</span>
+                              <h4 class="center-align truncate">{{steamUserService.discordData.members.length}} Members Online</h4>
+
+                              <a class="btn blue discordBtn" href= "https://www.combinecontrol.com/discord">Invite Link</a>
+
+                              <div>
+                                <button class='dropdown-trigger btn discordBtn loggedInBtn' (click)="onShowMembersClick()" href='javascript:' data-target='discordMembersDropDown'><span>Logged In Members</span>
+                                  <ul id='discordMembersDropDown'  [@animationOption2]="showLoggedInMembers ? 'open': 'close'" class="discordMembersUL">
+                                    <li *ngFor="let member of steamUserService.discordData.members"><a href="javascript:">{{member.username}}</a></li>
+                                  </ul></button>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div> -->
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -17,11 +17,6 @@
 
 ![picture](./images/character-view-page.PNG)
 
-### Account Donations:
-
-![picture](./images/account-donation-history.PNG)
-
-
 ### Servers List:
 
 ![picture](./images/servers-page.PNG)

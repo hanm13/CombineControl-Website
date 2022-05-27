@@ -1,0 +1,26 @@
+
+<p *ngIf="steamUserService.donationData.length == 0">No Data.</p>
+
+<table class="redTable" *ngIf="steamUserService.donationData.length != 0" border="1">
+
+  <tr>
+    <td>Transaction ID</td>
+    <td>Package Name</td>
+    <td>Package ID</td>
+    <td>Char ID</td>
+    <td>Amount</td>
+    <td>Date</td>
+  </tr>
+
+  <tr *ngFor ="let donation of steamUserService.donationData">
+
+    <td>{{donation.transactionid}}</td>
+    <td>{{donation.packagename}}</td>
+    <td>{{donation.packageid}}</td>
+    <td>{{donation.charid}}</td>
+    <td>{{donation.amount}}$</td>
+    <td>{{donation.date}}</td>
+
+  </tr>
+
+</table>

@@ -1,0 +1,24 @@
+<nav id="desktopnav">
+  <img class="head-logo" src="https://res.cloudinary.com/dwoxn3tdv/image/upload/w_360,c_limit,f_auto,fl_lossy,q_auto/v1517326935/logo_c5m2px.png" alt="logo">
+  <ul class="head-menu">
+    <li><a routerLink="/home">Home</a> |</li>
+    <li><a href="/forum">Forums</a> |</li>
+    <li><a href="javascript:void;" [routerLink]="['/home']" (click)="serversClick();" style='background=none;'>Servers</a> |</li>
+    <li><a href="https://www.combinecontrol.com/forum/node/33">Updates</a> |</li>
+    <li><a routerLink="/account">Account</a> |</li>
+    <!--<?php echo "<li>" .$adminp."</li>" ?> CHANGE TO NODE! -->
+    <!-- <a href="srules.php">Server Rules</a> -->
+
+    <li *ngIf="!steamUserService.userData.steamid">
+
+      <!--<li ngIf="userData.steamid"> - Welcome back {{userData.personaname}}</li>-->
+      <a [href]="authDomain"><img src="https://res.cloudinary.com/dwoxn3tdv/image/upload/v1517328296/sits_small_jhdeid.png"/></a>
+
+    </li>
+
+    <li *ngIf="steamUserService.userData.steamid"><img id ="steamProfileImage" title={{steamUserService.userData.personaname}} src="{{steamUserService.userData.avatar}}" /></li>
+    <li *ngIf="steamUserService.userData.steamid">Welcome back {{steamUserService.userData.personaname}}!</li>
+    <li *ngIf="steamUserService.userData.steamid"> - <button id="steamlogoutbtn" (click)="logout();">Logout</button></li>
+
+  </ul>
+</nav>

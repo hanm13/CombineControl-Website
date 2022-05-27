@@ -1,0 +1,77 @@
+{
+  "name": "passport-steam",
+  "version": "1.0.10",
+  "description": "Steam (OpenID) authentication strategy for Passport.",
+  "author": {
+    "name": "Liam Curry",
+    "email": "liam@curry.name",
+    "url": "http://www.liamcurry.com/"
+  },
+  "contributors": [
+    {
+      "name": "Toby Archer",
+      "email": "toby@nerdping.com",
+      "url": "http://github.com/mnzt"
+    },
+    {
+      "name": "Welps",
+      "url": "https://github.com/welps"
+    }
+  ],
+  "ava": {
+    "failFast": true,
+    "verbose": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/liamcurry/passport-steam.git"
+  },
+  "bugs": {
+    "url": "http://github.com/liamcurry/passport-steam/issues"
+  },
+  "main": "./lib/passport-steam",
+  "dependencies": {
+    "cli-color": "^1.4.0",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "mysql2": "^1.6.1",
+    "nodemon": "^1.18.4",
+    "passport-openid": "^0.4.0",
+    "primus": "^7.2.3",
+    "primus-rooms": "^3.4.1",
+    "serve-favicon": "^2.5.0",
+    "steam-web": "0.4.0",
+    "steamid": "^1.1.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.10.0",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "express-session": "^1.13.0",
+    "passport": "^0.3.2"
+  },
+  "scripts": {
+    "test": "ava test/*.test.js",
+    "server": "node bin/app.js",
+    "example-router": "node examples/signon/app-router.js"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "keywords": [
+    "passport",
+    "steam",
+    "auth",
+    "authn",
+    "authentication",
+    "identity"
+  ]
+}

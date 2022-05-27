@@ -1,0 +1,39 @@
+/*========= Mobile Menu ==================*/
+#mobile-menu{
+  position: fixed;
+  text-align: center;
+  list-style: none;
+  background: tomato;
+  width: 100%;
+  color: white;
+  padding-top: 3.9em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .0), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+#mobile-menu ul{
+  margin: none !important;
+
+}
+#mobile-menu li{
+  margin: none !important;
+}
+#mobile-menu li a{
+  border-style: solid;
+  border-top:  solid #FF836D;
+  border-left-style: none;
+  border-bottom: none;
+  display:inline-block;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100%;
+  color: white;
+  transition: background-color 0.6s ease;
+
+}
+#mobile-menu li a:hover{
+  transition: background-color 0.6s ease;
+  background: #D9391C;
+
+}
+.menu-hidden{
+  margin-top: -11em;
+}

@@ -1,0 +1,10 @@
+a.gobackbutton {
+  color: white;
+  font-weight: bold;
+  font: normal 18px tahoma,helvetica,arial,sans-serif;
+}
+a.gobackbutton:hover {
+  color: #de4545;
+  font-weight: bold;
+  font: normal 18px tahoma,helvetica,arial,sans-serif;
+}

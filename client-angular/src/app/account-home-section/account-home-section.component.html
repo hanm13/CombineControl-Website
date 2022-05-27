@@ -1,0 +1,210 @@
+<!-- NODE API -->
+<!--
+<?php
+/*if(isset($_SESSION["steamid"]))
+
+function generateCode() {
+
+    $chars = "abcdefghijkmnopqrstuvwxyz023456789";
+    srand((double)microtime()*1000000);
+    $i = 0;
+    $pass = '' ;
+
+    while ($i <= 7) {
+        $num = rand() % 33;
+        $tmp = substr($chars, $num, 1);
+        $pass = $pass . $tmp;
+        $i++;
+    }
+
+    return $pass;
+
+} 	?>-->
+
+
+		<!-- NODE API -->
+		<!--<?php
+		if(!$Serror)
+    {
+		?>-->
+				<div class='player-stats'>
+					<!-- NODE API -->
+					<!--<?php
+				$cooldown = 10;
+				if(isset($_POST["generate_new"])) {
+					$length = 12;
+					$code = hash("whirlpool", generateCode());
+					$steamidHash = hash("whirlpool", $_SESSION["rsteamid"]);
+					$code = $code . $steamidHash;
+					$code = substr(hash("whirlpool", $code), 0, $length);
+					sleep($cooldown);
+					$db->Update("cc_players", "`SecurityNumber` = '${code}'", "`SteamID` = '".dehtml($_SESSION["rsteamid"])."'");
+				}
+				$db->Select("cc_players", "*", "`SteamID` = '".dehtml($_SESSION["rsteamid"])."'");
+				$player = $db->result;
+
+				if($player["ToolTrust"] == "2")
+					$tooltrust = "Advanced";
+				elseif($player["ToolTrust"] == "1")
+				$tooltrust = "Basic";
+				else
+				$tooltrust = "None";
+
+				if($player["NewbieStatus"] == "0")
+					$newbie = "Yes";
+				else
+					$newbie = "No";
+
+				if($player["PropTrust"] == "1")
+					$pt = "Yes";
+				else
+					$pt = "No";
+
+				if($player["PhysTrust"] == "1")
+					$pht = "Yes";
+				else
+					$pht = "No";
+
+				if($player["ScoreboardTitle"] == "")
+					$sct = "None";
+				else
+					$sct = $player["ScoreboardTitle"];
+
+				$ssteamid = dehtml($_SESSION["steamid"]);
+					if(isset($_POST["seen_music"])) {
+						if(!isset($_POST["isMusic"])) {
+							$db->Insert("cc_muteMusic", "'${ssteamid}'", false, true);
+						}
+						else {
+							$db->Delete("cc_muteMusic", "`id` = '${ssteamid}'");
+						}
+					}
+					$db->Select("cc_muteMusic", "count(*) as `counter`", "`id` = '${ssteamid}'");
+					$checkedMusic = "";
+					if($db->result["counter"] == 0)
+						$checkedMusic = "checked ";
+				?>-->
+					<table id="player-table">
+						<tr>
+							<td style='font-weight: bold;'>SteamID</td>
+							<td>
+								{{steamUserService.playerData.SteamID}}
+							</td>
+						</tr>
+						<tr>
+							<td style='font-weight: bold;'>Nick Name</td>
+							<td>
+								{{steamUserService.playerData.SteamNickName}}
+							</td>
+						</tr>
+						<tr>
+							<td style='font-weight: bold;'>Last Online</td>
+							<td>
+								{{steamUserService.playerData.LastOnline}}
+							</td>
+						</tr>
+						<tr>
+							<td style='font-weight: bold;'>Security Number</td>
+							<td>
+								{{steamUserService.playerData.SecurityNumber}}
+								<!-- <br />
+								<form method=post>
+									<input type=submit name='generate_new' value='Generate New' onclick="alert('Please stand by for
+										<?php echo $cooldown; ?> seconds')" />
+									</form> -->
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Tool Gun Access</td>
+								<td>
+									<span *ngIf="steamUserService.playerData.ToolTrust == 0 ">None</span>
+									<span *ngIf="steamUserService.playerData.ToolTrust == 1 ">Basic</span>
+									<span *ngIf="steamUserService.playerData.ToolTrust == 2 ">Advanced</span>
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>CombineControl Points(CCP)</td>
+								<td>
+									{{steamUserService.playerData.CCP}}
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Extension of Props Limit</td>
+								<td>
+									{{steamUserService.playerData.CustomMaxProps}}
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Extension of Ragdolls Limit</td>
+								<td>
+									{{steamUserService.playerData.CustomMaxRagdolls}}
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Extension of Characters Limit</td>
+								<td>
+									{{steamUserService.playerData.CustomMaxCharacters}}
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Extension of Stash Limit</td>
+								<td>
+									{{steamUserService.playerData.CustomMaxStashedItems}}
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Prop Trust</td>
+								<td>
+									<span *ngIf="steamUserService.playerData.PropTrust == 0 ">None</span>
+									<span *ngIf="steamUserService.playerData.PropTrust == 1 ">Yes</span>
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Physics Trust</td>
+								<td>
+									<span *ngIf="steamUserService.playerData.PhysTrust == 0 ">None</span>
+									<span *ngIf="steamUserService.playerData.PhysTrust == 1 ">Yes</span>
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Scoreboard Title</td>
+								<td>
+									<span *ngIf="steamUserService.playerData.ScoreboardTitle == '' ">None</span>
+									<span *ngIf="steamUserService.playerData.ScoreboardTitle != '' ">{{steamUserService.playerData.ScoreboardTitle}}</span>
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Scoreboard Title Color(RGB)</td>
+								<td>
+									{{steamUserService.playerData.ScoreboardTitleC}}
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Referrer SteamID</td>
+								<td>
+									<span *ngIf="steamUserService.playerData.ReferralSteamID">{{steamUserService.playerData.ReferralSteamID}}</span>
+									<span *ngIf="!steamUserService.playerData.ReferralSteamID">None</span>
+								</td>
+							</tr>
+							<tr>
+								<td style='font-weight: bold;'>Referral Amount</td>
+								<td>
+									{{steamUserService.playerData.ReferralAmount}}
+								</td>
+							</tr>
+							<form action='' method=post>
+								<tr>
+									<td style='font-weight: bold;'>Play Loading Music?</td>
+									<td>
+										<input type='checkbox' name='isMusic' value='music' />
+										</td>
+									</tr>
+									<tr>
+										<td colspan=2>
+											<input type='hidden' name='seen_music' value='blat' />
+											<input type='submit' value='Disable/Enable Music' />
+										</td>
+									</tr>
+								</form>
+							</table>
+						</div>

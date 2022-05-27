@@ -1,0 +1,32 @@
+<header>
+
+  <app-header-nav-desktop></app-header-nav-desktop>
+
+  <nav id="mobilenav">
+
+    <div id="mobileheader">
+      <img class="menuicon" src="https://res.cloudinary.com/dwoxn3tdv/image/upload/c_limit,f_auto,fl_lossy,q_auto/v1518209602/menu_sfxpew.png" (click)="mobileMenuSlide();" alt="mobilemenu">
+      <img class="mobilelogo" src="https://res.cloudinary.com/dwoxn3tdv/image/upload/w_360,c_limit,f_auto,fl_lossy,q_auto/v1517326935/logo_c5m2px.png" alt="mobilemenu">
+    </div>
+    <app-header-nav-mobile [@animationOption2]="paginationService.mobileMenuState.show ? 'open': 'close'"></app-header-nav-mobile>
+
+
+  </nav>
+
+  <div id="media-links">
+
+    <!-- Feedback -->
+    <a href="https://www.combinecontrol.com/forum/node/1018" target="_blank" class="icons-right"><i class="fas fa-pencil-alt" aria-hidden="true"></i><span class="tips">Feedback</span></a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/c/CombineControlOfficial"target="_blank" class="icons-right"><i id="youtube-icon-right" class="fab fa-youtube"></i><span class="tips">YouTube Channel</span></a>
+
+    <!-- Steam -->
+    <a href="https://steamcommunity.com/groups/CombineControlRolePlay" target="_blank" class="icons-right"><i class="fab fa-steam-square"></i><span class="tips">Steam Group</span></a>
+
+    <!-- Return to Top -->
+    <a href="javascript:" id="return-to-top"><i class="fas fa-chevron-up"></i></a>
+
+  </div>
+
+</header>
